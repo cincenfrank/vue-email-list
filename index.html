@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <main id="vueApp">
+        <div class="container mt-5">
+            <h1>Random Email Generator</h1>
+            <p>This page will generate a list of 10 random email address whenever the "Generate" button is clicked</p>
+            <button class="btn btn-info mt-5" @click="generateList(emailsNumber)">Generate</button>
+            <div class="list-container mt-4">
+                <h3>Email Address List</h3>
+                <p v-if="listReady===null">click generate to populate the list</p>
+                <p v-else-if="!listReady">We are generating the list....</p>
+                <ol v-else>
+                    <li v-for="email in emailArray">{{email}}</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
